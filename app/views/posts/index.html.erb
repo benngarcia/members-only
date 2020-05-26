@@ -14,10 +14,16 @@
       <tr>
         <h3><%= post.title %> </h3>
         <p><%= post.body %> </p><br>
+        <% if user_signed_in? %>
+        <p>Written by: <%= User.find(post.user_id).username %></p>
+        <% else %>
+        <p> Written by: Anonymous </p>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 
